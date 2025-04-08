@@ -1,43 +1,53 @@
 # Robust-Visual-Tracking-of-Drones-via-Integrated-Deep-Learning-and-ORB-Descriptors
-Drone Detection and Tracking Inference Module
-This repository contains the inference module for our proposed drone detection and tracking framework, as introduced in our upcoming research paper. The core functionality is implemented in inferer_proposed.py.
 
-Overview
-The module provides an integrated approach to detect and track UAVs (drones) using a combination of deep learning detection (YOLO-based LERFNet) and classical tracking techniques (ByteTrack, ORB features). The proposed method aims to enhance performance in complex environments with robust matching and re-detection strategies.
+This repository contains the inference module for our proposed drone detection and tracking framework, as introduced in our paper **"Robust Visual Tracking of Drones via Integrated Deep Learning and ORB Descriptors"**.
 
-Dataset
-We use the DUT Anti-UAV dataset for training and evaluation. This dataset provides a variety of challenging drone scenarios for benchmarking anti-UAV systems.
+## Overview
 
-Features
-Real-time inference for drone detection.
+The core functionality is implemented in `inferer_proposed.py`. This script integrates visual detection and tracking techniques to robustly identify and follow UAVs (drones) in complex environments. Our method combines YOLO-based LERFNet object detection with classical feature-based tracking (ORB) and custom strategies for re-detection when tracks are lost.
 
-Efficient tracking using ORB descriptors and keypoint matching.
+## Dataset
 
-Mechanism for handling lost tracks and re-identification.
+We use the [**DUT Anti-UAV**](https://github.com/wangdongdut/DUT-Anti-UAV) dataset for training and evaluation. This dataset provides a variety of challenging drone scenarios for benchmarking anti-UAV systems.
 
-Designed for modular integration with detection pipelines.
+## Features
 
-Availability
-⚠️ The main class and method implementations in inferer_proposed.py are currently withheld and will be made publicly available after the official publication of our paper. Stay tuned for updates!
+- Real-time UAV detection and tracking.
+- ORB-based keypoint matching with ByteTrack for tracking after detection.
+- Recovery from lost tracks via descriptor comparison.
+- Easily integratable with other detection pipelines.
 
-Requirements
-Python 3.8+
+## Availability
 
-OpenCV
+⚠️ **The implementation in `inferer_proposed.py` will be released after the official publication of our paper.** Please stay tuned for updates.
 
-NumPy
+## Requirements
 
-PyTorch (for YOLO detection)
+- Python 3.8+
+- OpenCV
+- NumPy
+- PyTorch (for YOLO)
+- ByteTrack and LERFNet structures
 
-Other dependencies as required for the detection framework
+## Usage
 
-Usage
-After the code is released:
+After the code is released, the module can be run as:
 
-python inferer_proposed.py --weights path_to_weights.pt --source path_to_video
+```bash
+python inferer_proposed.py --weights path_to_yolo_weights.pt --source path_to_video
+```
 
-Citation
-If you use this work in your research, please cite our paper once it is published (citation details will be added here post-publication).
+More instructions and configuration options will be provided upon release.
 
-License
-This project will be released under an open-source license after publication.
+## Citation
+
+If you find this work useful, please consider citing our paper:
+
+**"Robust Visual Tracking of Drones via Integrated Deep Learning and ORB Descriptors"**  
+*Citation details will be added after publication.*
+
+## License
+
+This project will be released under an open-source license after the paper is published.
+
+---
